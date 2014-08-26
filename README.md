@@ -1,7 +1,7 @@
 Responsive Showcase Slider
 ===============
 
-This is a responive slider I constructed using jQuery. It uses css3 transitions, if supported and falls back to using the jQuery animate method if they are not available. The animate method can also be forced as you can combine it with the jQuery easing plugin [jQuery easing plugin](https://github.com/gdsmith/jquery.easing). Include the plugin before this one and overwrite the animation method in the plugin settings.
+A lightweight responive slider (> 2.5kb gzipped) constructed using jQuery. It uses css3 transitions, if supported and falls back to using the jQuery animate method if they are not available. The animate method can also be forced as you can combine it with the jQuery easing plugin [jQuery easing plugin](https://github.com/gdsmith/jquery.easing). Include the plugin before this one and overwrite the animation method in the plugin settings.
 
 Overriding Defaults
 ==================
