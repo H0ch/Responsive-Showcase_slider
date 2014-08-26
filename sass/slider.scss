@@ -1,0 +1,99 @@
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+@import "compass/css3/transition"; 
+@import "compass/css3/transform";
+
+%clear{
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0; }
+%see-through{
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	filter: alpha(opacity=70);
+	opacity: 0.7; }
+%opaque{
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1; }
+
+#showcase_slider{
+	padding: 10px;
+	.sc_inner{
+		position: relative;
+		max-width: 960px;
+		margin: 0 auto;
+		.sc_viewport{
+			@include border-radius( 10px );
+			border: 1px solid #000;
+			@include box-shadow( 2px 2px 4px rgba(0,0,0,0.5) );
+			overflow: hidden;
+		}
+		article{
+			display: block;
+			position: absolute;
+			@include border-radius( 10px );
+			overflow: hidden;
+			top: 0;
+			left: 0;
+			max-width: 100%;
+			z-index: 10;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			@extend %opaque;	
+			&.active{ position: relative; z-index: 500; }
+			&.pre{ z-index: 200; }
+			&.clear{ @extend %clear; }
+			img{ display: block; max-width: 100%; }
+		}
+		.sc_cap_cont{
+			position: absolute;
+			display: block;
+			padding: 10px;
+			width: 100%;
+			color: #fff;
+			background: rgb(0,0,0);
+			background: rgba(0,0,0,0.6);
+			bottom: 0;
+			font-size: 24px;
+			@media screen and  (max-width: 787px ){ display: none; }
+		}
+		.sc_caption{
+			position: relative;		
+			left: -100%;			
+			line-height: 1.2em;
+			&.slideIn{ left: 0; }
+			&.slideOut{ left: 100%; }
+		}
+	}
+	span[data-dir]{
+		display: inline-block;
+		position: absolute;
+		height: 50px;
+		width: 44px;
+		z-index: 1000;
+		background: url("../assets/arrows.png");
+		top: 50%;
+		cursor: pointer;
+		@extend %see-through;
+		@include transition( opacity 0.3s ease-in-out );
+		&:hover{ @extend %opaque }
+	}
+	span[data-dir="prev"]{
+		background-position: 0 0px;		
+		left: 0;
+		@include translate3d( 20px,-50%,0 );
+		@media screen and ( min-width: 1150px ){
+			@include translate3d( -150%, -50%, 0 );
+		};
+		
+	}
+	span[data-dir="next"]{
+		background-position: -44px 0;
+		right: 0;
+		@include translate3d( -20px, -50%, 0 );
+		@media screen and ( min-width: 1150px ){
+			@include translate3d( 150%, -50%, 0 );
+		};		
+	}
+}

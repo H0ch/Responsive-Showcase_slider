@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html class='no-js' lang="en">
+
+<link rel="stylesheet" href="css/slider.css">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<head>
+	<meta charset="UTF-8">
+	<title>Responsive Showcase Slider | By Orin Bailey</title>
+	<style>
+		body{
+			font-family: 'helvetica', 'arial', sans-serif;
+			background:#1c1c1c;
+		}
+		h1{
+			text-align: center;
+			font-size:30px;
+			margin:10px;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<h1>Responsive Showcase Slider</h1>
+	<div id="showcase" class="shadowed">
+		<div id="showcase_slider">						
+			<div class="sc_inner">
+				<div class="sc_viewport">
+					<span data-dir="next"></span>
+					<span data-dir="prev"></span>
+					<div class="sc_inner">
+						<article class="">
+							<img src="image1.png" alt="">
+							<div class="sc_cap_cont">
+								<span class="sc_caption">Caption One</span>
+							</div>
+						</article>							
+						<article class="">
+							<img src="image2.png" alt="">
+							<div class="sc_cap_cont">
+								<span class="sc_caption">Caption Two</span>
+							</div>
+						</article>
+						<article class="">
+							<img src="image3.png" alt="">
+							<div class="sc_cap_cont">
+								<span class="sc_caption">Caption Three</span>
+							</div>
+						</article>											
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/sc-slider.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#showcase_slider').showcaseSlider({
+				speed : 2000
+			});
+		})
+	</script>
+</body>
+</html>
